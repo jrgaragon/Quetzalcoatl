@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Quetzalcoatl';
+  artifactId: number;
+
+  artifactSelected(artifactId: number){
+    console.log("app.component: " + artifactId);
+    this.artifactId = artifactId;
+  }
 }

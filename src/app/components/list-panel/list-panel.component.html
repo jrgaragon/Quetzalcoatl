@@ -1,0 +1,6 @@
+<br>
+<ul class="list-group" >
+    <li *ngFor="let item of lookupTableName" class="list-group-item" >
+        <a href="#" (click)="loadLookupData(item.id)">{{item.name}}</a>
+    </li>
+</ul>
