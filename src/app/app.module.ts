@@ -6,6 +6,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListPanelComponent } from './components/list-panel/list-panel.component';
 import { DataGridComponent } from './components/data-grid/data-grid.component';
+import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,10 +15,11 @@ import { DataGridComponent } from './components/data-grid/data-grid.component';
     HeaderComponent,
     NavbarComponent,
     ListPanelComponent,
-    DataGridComponent
+    DataGridComponent    
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

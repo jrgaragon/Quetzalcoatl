@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+
 
 @Component({
   selector: 'app-data-grid',
@@ -9,9 +11,15 @@ export class DataGridComponent implements OnInit {
 
   @Input () artifactId: number;
   @Input() gridConfiguration : any;
-  constructor() { }
+  
+  constructor(private http: HttpClient) { 
+    if(this.artifactId) {
+      console.log(this.artifactId);
+    }
+  }
 
   ngOnInit() {
+    
   }
 
 }
