@@ -1,1 +1,16 @@
-<div>{{artifactId}}</div>
+<h3 *ngIf = "dataGrid" > {{dataGrid.data.name}}</h3> 
+<br>
+<div *ngIf="dataGrid" >
+    <table class="table">
+        <tr>
+            <th *ngFor="let header of dataGrid.data.columns">
+                {{header}}
+            </th>
+        </tr>
+        <tr *ngFor="let row of dataGrid.data.data">
+            <td *ngFor="let value of row"> 
+                {{value}}
+            </td>
+        </tr>
+    </table> 
+</div>
