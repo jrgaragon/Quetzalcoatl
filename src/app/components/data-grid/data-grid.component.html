@@ -1,19 +1,32 @@
-<h3 *ngIf = "dataGrid" > {{dataGrid.data.name}}</h3> 
+<h3 *ngIf="dataGrid">
+    {{dataGrid.data.name}}</h3>
 <br>
-<div *ngIf="dataGrid" >
-    <table class="table table-striped table-bordered">
-        <thead class="thead-dark">
-            <tr>
-                <th *ngFor="let header of dataGrid.data.columns">
-                    {{header}}
-                </th>
+    <div *ngIf="dataGrid">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th *ngFor="let header of dataGrid.data.columns; let index = index">
+                        <span>{{header}}</span>
+                        <span *ngIf="this.gridConfiguration.columns[index]">
+                            -
+                            {{this.gridConfiguration.columns[index].name}}</span>
+                    </th>
+                </tr>
+            </thead>
+            <tr *ngFor="let row of dataGrid.data.data">
+                <td *ngFor="let column of row; let index = index">
+                    <div *ngIf="this.gridConfiguration.columns[index] && this.gridConfiguration.columns[index].type === 'text'" class="text-type">
+                        <span>{{column}}</span>
+                    </div>
+                    <div *ngIf="this.gridConfiguration.columns[index] && this.gridConfiguration.columns[index].type === 'dropdown'" class="dropdown-type">
+                        <select >
+                            <option *ngFor="let o of this.gridConfiguration.columns[index].values" [selected]="o===column">{{o}}</option>
+                        </select>
+                    </div>
+                    <div *ngIf="this.gridConfiguration.columns[index] && this.gridConfiguration.columns[index].type === 'input'" class="input-type">
+                        <input type="text" [value]="column" >
+                    </div>
+                </td>
             </tr>
-        </thead>
-        
-        <tr *ngFor="let row of dataGrid.data.data">
-            <td *ngFor="let value of row"> 
-                {{value}}
-            </td>
-        </tr>
-    </table> 
-</div>
+        </table>
+    </div>

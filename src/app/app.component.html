@@ -12,7 +12,7 @@
           </div>
         <div class="row">
           <div class="col-2"><app-list-panel (artifactSelected)="artifactSelected($event)"></app-list-panel></div>
-          <div class="col-10"><app-data-grid [artifactId]="artifactId"></app-data-grid></div>
+          <div class="col-10"><app-data-grid [artifactId]="artifactId" [gridConfiguration]="gridConfiguration"></app-data-grid></div>
         </div>
       </div>
 </div>

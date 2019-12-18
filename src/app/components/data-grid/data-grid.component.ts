@@ -11,7 +11,7 @@ export class DataGridComponent implements OnInit {
     dataGrid: any;    
 
     constructor(private http : HttpClient) {
-    
+        
     }
 
     ngOnInit() {}
@@ -20,9 +20,9 @@ export class DataGridComponent implements OnInit {
         console.log(changes);
         if (changes.artifactId.currentValue) {
             this.http.post('https://lookupapi.getsandbox.com:443/getLookupDataById', {lookupId: changes.artifactId.currentValue}).subscribe(response => {
-                console.log(response);
                 this.dataGrid = response;
             });
         }
+        console.log(this.gridConfiguration);
     }
 }
